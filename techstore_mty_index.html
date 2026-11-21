@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TechStore MTY: repositorio digital académico de productos tecnológicos, base de datos y recursos digitales.">
+<title>TechStore MTY | Repositorio Digital</title>
+<style>
+:root{--navy:#14243e;--blue:#244c7c;--gold:#d9b66b;--paper:#f3f5f8;--ink:#263449;--muted:#68788d;--line:#e2e8f0;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:var(--blue)}
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;padding:14px max(5%,calc((100% - 1180px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;box-shadow:0 3px 16px #0002}
+.brand{font-weight:800;letter-spacing:1.5px;font-size:21px;white-space:nowrap}.brand span{color:var(--gold)}
+nav{display:flex;flex-wrap:wrap;gap:7px 15px}
+nav a{color:#fff;text-decoration:none;font-size:13px}nav a:hover,nav a:focus{color:var(--gold)}
+.hero{background:linear-gradient(125deg,#101d32,#244c7c);color:#fff;text-align:center;padding:78px 20px 85px}
+.kicker{color:var(--gold);font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,7vw,66px);line-height:1.08;margin:15px 0}.hero h1 span{color:var(--gold)}
+.hero p{max-width:760px;margin:0 auto 25px;color:#e5ebf3}
+.button{display:inline-block;background:var(--gold);color:#17243a;text-decoration:none;font-weight:bold;padding:12px 20px;border-radius:5px}
+.wrap{width:min(1120px,90%);margin:auto}
+section{padding:62px 0}
+.white{background:#fff}
+.section-no{color:#9a742e;font-size:12px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase}
+h2{color:var(--navy);font-size:clamp(26px,4vw,34px);line-height:1.2;margin:8px 0 14px}
+h3{color:var(--navy);margin:8px 0}
+.lead{max-width:820px;color:var(--muted);margin:0;line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px;margin-top:25px}
+.card{background:#fff;border:1px solid var(--line);border-radius:11px;padding:21px;box-shadow:0 5px 18px #162b4509}
+.white .card{background:#fbfcfe}
+.symbol{height:52px;width:52px;border-radius:12px;background:#edf2f8;display:grid;place-items:center;font-size:27px}
+.card p{color:var(--muted);font-size:14px;margin-bottom:0}
+.pill{display:inline-block;background:#edf2f8;color:#345579;border-radius:30px;padding:4px 10px;font-size:11px;font-weight:bold}
+.two-col{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin-top:25px}
+.panel{background:var(--navy);color:#fff;border-radius:11px;padding:25px}
+.panel h3{color:var(--gold)}.panel p{color:#e2e9f2}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0 12px}
+.filters button{border:1px solid #d6dfeb;background:#fff;padding:9px 15px;border-radius:25px;cursor:pointer;color:var(--navy)}
+.filters button.active,.filters button:hover{background:var(--navy);color:#fff}
+.search{width:100%;padding:13px 14px;border:1px solid #ccd6e2;border-radius:7px;font-size:15px;background:#fff}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:17px;margin-top:18px}
+.product{background:#fff;border:1px solid var(--line);border-radius:11px;overflow:hidden}
+.product-art{height:135px;background:linear-gradient(135deg,#eaf0f7,#d5e0ec);display:grid;place-items:center;font-size:58px}
+.product-body{padding:18px}.product-body h3{font-size:17px}
+.product-body p{font-size:13px;color:var(--muted);min-height:60px}
+.price{font-size:21px;font-weight:bold;color:#98712b;margin-top:10px}
+.meta{font-size:12px;color:#64748b;margin-top:7px}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:9px;background:#fff;margin-top:22px}
+table{border-collapse:collapse;width:100%;min-width:980px;font-size:12px}
+th{background:var(--navy);color:#fff;text-align:left;padding:12px}
+td{padding:12px;border-bottom:1px solid #e8edf2;vertical-align:top}
+tbody tr:nth-child(even){background:#f8fafc}
+td a{overflow-wrap:anywhere}
+.note{border-left:4px solid var(--gold);background:#fffaf0;padding:14px 17px;border-radius:4px;color:#66512a;font-size:13px;margin-top:18px}
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:13px;margin-top:23px}
+.term{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:7px;padding:16px}
+.term strong{color:var(--navy)}.term p{font-size:13px;color:var(--muted);margin:6px 0 0}
+.resource a{display:inline-block;margin-top:12px;font-weight:bold;font-size:13px;text-decoration:none}
+.resource a:hover{text-decoration:underline}
+.institution{background:#fff;border:1px solid var(--line);border-radius:10px;padding:23px;margin-top:22px}
+.institution p{padding:8px 0;margin:0;border-bottom:1px solid #edf0f4}
+.institution p:last-child{border:0}
+.institution strong{color:var(--navy)}
+footer{background:#101d32;color:#e5ebf3;text-align:center;padding:32px 18px}
+footer .brand{font-size:20px}footer p{font-size:13px;margin:7px 0}footer span{color:var(--gold)}
+.small{font-size:12px;color:var(--muted)}
+@media(max-width:720px){header{position:relative;padding:15px 5%}.two-col{grid-template-columns:1fr}section{padding:45px 0}.hero{padding:60px 18px}.wrap{width:92%}nav{gap:8px 12px}}
+@media print{header{position:static}.filters,.search,.button{display:none}.hero{padding:35px}.card,.product{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">TECHSTORE <span>MTY</span></div>
+  <nav aria-label="Navegación principal">
+    <a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#categorias">Categorías</a>
+    <a href="#catalogo">Catálogo</a><a href="#base">Base de datos</a><a href="#recursos">Recursos</a>
+    <a href="#glosario">Glosario</a><a href="#institucional">Institucional</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="kicker">Repositorio digital · Evidencia 4</div>
+  <h1>TECHSTORE <span>MTY</span></h1>
+  <p>Un espacio digital para consultar, clasificar y organizar información de productos tecnológicos y recursos relacionados con el entorno web.</p>
+  <a class="button" href="#catalogo">Explorar el catálogo</a>
+</section>
+
+<section id="nosotros">
+ <div class="wrap">
+  <div class="section-no">01 · Presentación</div><h2>Conoce TechStore MTY</h2>
+  <p class="lead">TechStore MTY es un repositorio digital académico que reúne información de seis productos tecnológicos. El contenido se organiza en categorías y se presenta mediante fichas, una tabla de datos y recursos de consulta para facilitar la localización y comprensión de la información.</p>
+  <div class="two-col">
+   <div>
+    <h3>Misión</h3><p>Organizar y presentar información de productos tecnológicos de manera clara, uniforme y accesible, utilizando recursos digitales que faciliten su consulta.</p>
+    <h3>Visión</h3><p>Consolidar un espacio digital ordenado y funcional que muestre cómo la clasificación y el uso adecuado de herramientas web ayudan a compartir información.</p>
+    <h3>Objetivo</h3><p>Integrar un catálogo de seis productos, clasificarlos por función, estructurar sus datos y ofrecer recursos digitales complementarios en una página de navegación sencilla.</p>
+   </div>
+   <aside class="panel"><h3>¿Qué contiene el repositorio?</h3>
+    <p>• Presentación del proyecto y sus objetivos.</p><p>• Cuatro categorías de productos.</p><p>• Catálogo con búsqueda y filtros.</p><p>• Base de datos con nueve campos.</p><p>• Recursos de texto y video.</p><p>• Glosario de conceptos digitales.</p>
+   </aside>
+  </div>
+ </div>
+</section>
+
+<section class="white" id="categorias">
+ <div class="wrap">
+  <div class="section-no">02 · Clasificación y distribución</div><h2>Categorías del repositorio</h2>
+  <p class="lead">Los productos se distribuyen de acuerdo con su función principal. Esta clasificación permite localizar rápidamente los artículos y mantiene una estructura uniforme.</p>
+  <div class="grid">
+   <article class="card"><div class="symbol">🎧</div><h3>Audio</h3><p>Dispositivos para captar, reproducir o transmitir sonido.</p><p><span class="pill">2 productos</span></p></article>
+   <article class="card"><div class="symbol">⌨️</div><h3>Periféricos</h3><p>Dispositivos que permiten introducir información e interactuar con un equipo de cómputo.</p><p><span class="pill">2 productos</span></p></article>
+   <article class="card"><div class="symbol">💾</div><h3>Almacenamiento</h3><p>Dispositivos que permiten guardar y transportar archivos digitales.</p><p><span class="pill">1 producto</span></p></article>
+   <article class="card"><div class="symbol">🔌</div><h3>Accesorios</h3><p>Complementos que amplían las conexiones y posibilidades de uso de otros dispositivos.</p><p><span class="pill">1 producto</span></p></article>
+  </div>
+ </div>
+</section>
+
+<section id="catalogo">
+ <div class="wrap">
+  <div class="section-no">03 · Catálogo</div><h2>Productos tecnológicos</h2>
+  <p class="lead">El catálogo contiene los seis registros del proyecto. Puedes buscar por nombre o descripción y filtrar por categoría.</p>
+  <input id="search" class="search" type="search" placeholder="Buscar un producto..." aria-label="Buscar producto">
+  <div class="filters" aria-label="Filtros por categoría">
+   <button class="active" data-filter="Todos">Todos</button><button data-filter="Audio">Audio</button>
+   <button data-filter="Periféricos">Periféricos</button><button data-filter="Almacenamiento">Almacenamiento</button>
+   <button data-filter="Accesorios">Accesorios</button>
+  </div>
+  <div class="products" id="products">
+   <article class="product" data-category="Audio"><div class="product-art" aria-hidden="true">🎧</div><div class="product-body"><span class="pill">PROD-001 · AUDIO</span><h3>Audífonos Inalámbricos ANC</h3><p>Cancelación de ruido activa, batería de 30 horas y Bluetooth 5.3.</p><div class="price">$1,899 MXN</div><div class="meta">Existencias: 25 unidades</div></div></article>
+   <article class="product" data-category="Periféricos"><div class="product-art" aria-hidden="true">⌨️</div><div class="product-body"><span class="pill">PROD-002 · PERIFÉRICOS</span><h3>Teclado Mecánico RGB 65%</h3><p>Switches táctiles silenciosos, retroiluminación personalizable y cable USB-C.</p><div class="price">$1,450 MXN</div><div class="meta">Existencias: 18 unidades</div></div></article>
+   <article class="product" data-category="Periféricos"><div class="product-art" aria-hidden="true">🖱️</div><div class="product-body"><span class="pill">PROD-003 · PERIFÉRICOS</span><h3>Mouse Ergonómico Vertical</h3><p>Diseño inalámbrico recargable de 2400 DPI para reducción de fatiga.</p><div class="price">$790 MXN</div><div class="meta">Existencias: 40 unidades</div></div></article>
+   <article class="product" data-category="Almacenamiento"><div class="product-art" aria-hidden="true">💽</div><div class="product-body"><span class="pill">PROD-004 · ALMACENAMIENTO</span><h3>Disco Duro Externo SSD 1TB</h3><p>Unidad de estado sólido portátil de alta velocidad USB 3.2 resistente a golpes.</p><div class="price">$2,150 MXN</div><div class="meta">Existencias: 12 unidades</div></div></article>
+   <article class="product" data-category="Accesorios"><div class="product-art" aria-hidden="true">🔌</div><div class="product-body"><span class="pill">PROD-005 · ACCESORIOS</span><h3>Hub Multipuerto USB-C 7 en 1</h3><p>Adaptador con salida HDMI 4K, 3 puertos USB 3.0, lector SD y carga rápida.</p><div class="price">$650 MXN</div><div class="meta">Existencias: 50 unidades</div></div></article>
+   <article class="product" data-category="Audio"><div class="product-art" aria-hidden="true">🎙️</div><div class="product-body"><span class="pill">PROD-006 · AUDIO</span><h3>Micrófono Condensador USB</h3><p>Patrón polar cardioide ideal para podcasts, streaming y grabación de voz.</p><div class="price">$1,290 MXN</div><div class="meta">Existencias: 15 unidades</div></div></article>
+  </div>
+  <p id="no-results" class="small" hidden>No se encontraron productos con esos criterios.</p>
+ </div>
+</section>
+
+<section class="white" id="base">
+ <div class="wrap">
+  <div class="section-no">04 · Organización de datos</div><h2>Base de datos</h2>
+  <p class="lead">La tabla concentra los registros del catálogo. Cada producto cuenta con un identificador único y campos que describen su clasificación, características, precio, existencias, fecha de ingreso y contacto del proveedor.</p>
+  <div class="table-scroll">
+   <table>
+    <thead><tr><th>ID</th><th>Nombre</th><th>Categoría</th><th>Descripción</th><th>Precio MXN</th><th>Stock</th><th>Fecha de ingreso</th><th>Contacto proveedor</th><th>URL ficha</th></tr></thead>
+    <tbody>
+     <tr><td>PROD-001</td><td>Audífonos Inalámbricos ANC</td><td>Audio</td><td>Cancelación de ruido activa, batería de 30 horas y Bluetooth 5.3.</td><td>$1,899</td><td>25</td><td>01/11/2026</td><td>ventas@audiotech.com</td><td><a href="https://techstore-mty.com/productos/audifonos-anc" target="_blank" rel="noopener">Ficha</a></td></tr>
+     <tr><td>PROD-002</td><td>Teclado Mecánico RGB 65%</td><td>Periféricos</td><td>Switches táctiles silenciosos, retroiluminación personalizable y cable USB-C.</td><td>$1,450</td><td>18</td><td>02/11/2026</td><td>soporte@keymaster.mx</td><td><a href="https://techstore-mty.com/productos/teclado-mecanico" target="_blank" rel="noopener">Ficha</a></td></tr>
+     <tr><td>PROD-003</td><td>Mouse Ergonómico Vertical</td><td>Periféricos</td><td>Diseño inalámbrico recargable de 2400 DPI para reducción de fatiga.</td><td>$790</td><td>40</td><td>03/11/2026</td><td>contacto@ergopro.com</td><td><a href="https://techstore-mty.com/productos/mouse-ergonomico" target="_blank" rel="noopener">Ficha</a></td></tr>
+     <tr><td>PROD-004</td><td>Disco Duro Externo SSD 1TB</td><td>Almacenamiento</td><td>Unidad de estado sólido portátil de alta velocidad USB 3.2 resistente a golpes.</td><td>$2,150</td><td>12</td><td>04/11/2026</td><td>distribucion@datastorage.mx</td><td><a href="https://techstore-mty.com/productos/ssd-1tb" target="_blank" rel="noopener">Ficha</a></td></tr>
+     <tr><td>PROD-005</td><td>Hub Multipuerto USB-C 7 en 1</td><td>Accesorios</td><td>Adaptador con salida HDMI 4K, 3 puertos USB 3.0, lector SD y carga rápida.</td><td>$650</td><td>50</td><td>05/11/2026</td><td>info@conectamx.com</td><td><a href="https://techstore-mty.com/productos/hub-usb-c" target="_blank" rel="noopener">Ficha</a></td></tr>
+     <tr><td>PROD-006</td><td>Micrófono Condensador USB</td><td>Audio</td><td>Patrón polar cardioide ideal para podcasts, streaming y grabación de voz.</td><td>$1,290</td><td>15</td><td>06/11/2026</td><td>ventas@studiogear.com</td><td><a href="https://techstore-mty.com/productos/microfono-usb" target="_blank" rel="noopener">Ficha</a></td></tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="note"><strong>Nota sobre los enlaces:</strong> las direcciones de la columna “URL ficha” se muestran como los datos registrados para cada producto en el proyecto. Su disponibilidad depende de que las páginas correspondientes estén publicadas.</div>
+  <h3 style="margin-top:28px">Descripción de los campos</h3>
+  <div class="grid">
+   <article class="card"><h3>ID</h3><p>Clave única que identifica cada registro.</p></article>
+   <article class="card"><h3>Nombre</h3><p>Denominación del producto tecnológico.</p></article>
+   <article class="card"><h3>Categoría</h3><p>Grupo al que pertenece el producto según su función.</p></article>
+   <article class="card"><h3>Descripción</h3><p>Características principales del artículo.</p></article>
+   <article class="card"><h3>Precio_MXN</h3><p>Precio expresado en pesos mexicanos.</p></article>
+   <article class="card"><h3>Stock</h3><p>Cantidad de unidades registradas.</p></article>
+   <article class="card"><h3>Fecha_Ingreso</h3><p>Fecha en la que se incorporó el registro.</p></article>
+   <article class="card"><h3>Contacto_Proveedor</h3><p>Correo electrónico de contacto del proveedor.</p></article>
+   <article class="card"><h3>URL_Ficha_Imagen</h3><p>Dirección web asociada a la ficha del producto.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="recursos">
+ <div class="wrap">
+  <div class="section-no">05 · Consulta y aprendizaje</div><h2>Recursos digitales y multimedia</h2>
+  <p class="lead">Los siguientes materiales complementan el repositorio y permiten consultar documentación técnica y contenido audiovisual relacionado con el desarrollo web y los productos tecnológicos.</p>
+  <div class="grid">
+   <article class="card resource"><div class="symbol">📘</div><h3>Documentación HTML</h3><p>Referencia para comprender la estructura y los elementos de una página web.</p><a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noopener">Consultar MDN Web Docs →</a></article>
+   <article class="card resource"><div class="symbol">🎨</div><h3>Documentación CSS</h3><p>Material de consulta sobre estilos, diseño, colores y distribución visual.</p><a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank" rel="noopener">Consultar MDN Web Docs →</a></article>
+   <article class="card resource"><div class="symbol">💻</div><h3>Documentación JavaScript</h3><p>Referencia para conocer las funciones interactivas de las páginas web.</p><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener">Consultar MDN Web Docs →</a></article>
+   <article class="card resource"><div class="symbol">🌐</div><h3>Google Sites</h3><p>Plataforma de Google para crear y publicar sitios web.</p><a href="https://sites.google.com/" target="_blank" rel="noopener">Visitar Google Sites →</a></article>
+  </div>
+  <h3 style="margin-top:32px">Recursos audiovisuales</h3>
+  <div class="grid">
+   <article class="card resource"><div class="symbol">▶️</div><h3>Unidades SSD</h3><p>Videos explicativos sobre funcionamiento, características y ventajas de los discos SSD.</p><a href="https://www.youtube.com/results?search_query=como+funciona+un+disco+SSD" target="_blank" rel="noopener">Explorar videos →</a></article>
+   <article class="card resource"><div class="symbol">▶️</div><h3>Periféricos de computadora</h3><p>Material audiovisual sobre teclados, mouse y dispositivos de entrada.</p><a href="https://www.youtube.com/results?search_query=perifericos+de+computadora+explicacion" target="_blank" rel="noopener">Explorar videos →</a></article>
+   <article class="card resource"><div class="symbol">▶️</div><h3>Micrófonos y audio</h3><p>Videos sobre tipos de micrófonos, patrones polares y grabación de sonido.</p><a href="https://www.youtube.com/results?search_query=tipos+de+microfonos+patron+cardioide" target="_blank" rel="noopener">Explorar videos →</a></article>
+  </div>
+  <p class="note">Los enlaces audiovisuales llevan a resultados de búsqueda de YouTube para que puedas elegir el material específico que deseas consultar. No representan videos propios del proyecto.</p>
+ </div>
+</section>
+
+<section class="white" id="glosario">
+ <div class="wrap">
+  <div class="section-no">06 · Términos y conceptos</div><h2>Glosario digital</h2>
+  <p class="lead">Conceptos esenciales para comprender cómo se estructura, publica y utiliza un repositorio en internet.</p>
+  <div class="glossary">
+   <article class="term"><strong>Repositorio digital</strong><p>Espacio organizado que reúne recursos e información en formato digital para facilitar su almacenamiento, consulta y distribución.</p></article>
+   <article class="term"><strong>Sitio web</strong><p>Conjunto de páginas relacionadas que se encuentran disponibles en internet bajo una misma dirección o dominio.</p></article>
+   <article class="term"><strong>Página web</strong><p>Documento digital que puede contener texto, imágenes, enlaces, audio y video, y que se visualiza mediante un navegador.</p></article>
+   <article class="term"><strong>HTML</strong><p>Lenguaje de marcado que define la estructura y organización del contenido de una página web.</p></article>
+   <article class="term"><strong>CSS</strong><p>Lenguaje de estilos utilizado para definir la presentación visual, como colores, tipografías, espacios y distribución.</p></article>
+   <article class="term"><strong>JavaScript</strong><p>Lenguaje de programación que permite agregar interactividad y comportamientos dinámicos a una página web.</p></article>
+   <article class="term"><strong>URL</strong><p>Dirección que permite localizar un recurso, documento o página dentro de internet.</p></article>
+   <article class="term"><strong>Dominio</strong><p>Nombre legible que identifica la dirección de un sitio web y facilita que los usuarios lo encuentren.</p></article>
+   <article class="term"><strong>Hosting</strong><p>Servicio que almacena los archivos de un sitio web y permite que estén disponibles en internet.</p></article>
+   <article class="term"><strong>Base de datos</strong><p>Conjunto organizado de información que permite registrar, consultar, actualizar y administrar datos.</p></article>
+   <article class="term"><strong>Interfaz de usuario (UI)</strong><p>Parte visual de una plataforma con la que interactúa el usuario mediante menús, botones, campos y controles.</p></article>
+   <article class="term"><strong>Experiencia de usuario (UX)</strong><p>Percepción y experiencia general de una persona al utilizar un sitio web o una aplicación.</p></article>
+   <article class="term"><strong>Hipervínculo</strong><p>Elemento que permite navegar hacia otra página, documento o recurso mediante un enlace.</p></article>
+   <article class="term"><strong>Multimedia</strong><p>Integración de distintos formatos de información, como texto, imágenes, audio, animación y video.</p></article>
+   <article class="term"><strong>Diseño responsivo</strong><p>Técnica que adapta la presentación de una página web a diferentes tamaños de pantalla y dispositivos.</p></article>
+   <article class="term"><strong>Navegador web</strong><p>Programa que permite acceder, interpretar y visualizar páginas y contenidos disponibles en internet.</p></article>
+   <article class="term"><strong>Accesibilidad web</strong><p>Prácticas de diseño y desarrollo que buscan que los contenidos digitales puedan ser utilizados por la mayor diversidad de personas.</p></article>
+   <article class="term"><strong>Motor de búsqueda</strong><p>Servicio que ayuda a localizar información en internet a partir de palabras o frases ingresadas por el usuario.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="institucional">
+ <div class="wrap">
+  <div class="section-no">07 · Datos académicos</div><h2>Información institucional</h2>
+  <p class="lead">Identificación académica del proyecto correspondiente a la Evidencia 4: Repositorio Digital.</p>
+  <div class="institution">
+   <p><strong>Universidad:</strong> Universidad Autónoma de Nuevo León (UANL)</p>
+   <p><strong>Facultad:</strong> Facultad de Ciencias de la Comunicación</p>
+   <p><strong>Programa educativo:</strong> Mercadotecnia y Gestión de la Imagen</p>
+   <p><strong>Estudiante:</strong> Esteban Quintal Salazar</p>
+   <p><strong>Matrícula:</strong> 2274605</p>
+   <p><strong>Grupo:</strong> V63</p>
+   <p><strong>Actividad:</strong> Evidencia 4. Repositorio Digital</p>
+   <p><strong>Nombre del proyecto:</strong> TechStore MTY</p>
+   <p><strong>Fecha de elaboración de la base:</strong> 06 de noviembre de 2026</p>
+  </div>
+ </div>
+</section>
+
+<section class="white" id="referencias">
+ <div class="wrap">
+  <div class="section-no">08 · Fuentes de consulta</div><h2>Referencias digitales</h2>
+  <div class="card">
+   <p>Mozilla. (s. f.). <em>HTML: Lenguaje de marcado de hipertexto</em>. MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noopener">https://developer.mozilla.org/es/docs/Web/HTML</a></p>
+   <p>Mozilla. (s. f.). <em>CSS: Hojas de estilo en cascada</em>. MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank" rel="noopener">https://developer.mozilla.org/es/docs/Web/CSS</a></p>
+   <p>Mozilla. (s. f.). <em>JavaScript</em>. MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener">https://developer.mozilla.org/es/docs/Web/JavaScript</a></p>
+   <p>Google. (s. f.). <em>Google Sites</em>. <a href="https://sites.google.com/" target="_blank" rel="noopener">https://sites.google.com/</a></p>
+   <p>World Wide Web Consortium. (s. f.). <em>Web Accessibility Initiative (WAI)</em>. <a href="https://www.w3.org/WAI/" target="_blank" rel="noopener">https://www.w3.org/WAI/</a></p>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="brand">TECHSTORE <span>MTY</span></div>
+ <p>Repositorio digital académico de información tecnológica.</p>
+ <p>Universidad Autónoma de Nuevo León · Facultad de Ciencias de la Comunicación</p>
+ <p>© 2026 TechStore MTY</p>
+</footer>
+
+<script>
+const filterButtons = document.querySelectorAll('.filters button');
+const productCards = document.querySelectorAll('.product');
+const searchInput = document.getElementById('search');
+const noResults = document.getElementById('no-results');
+let activeCategory = 'Todos';
+
+function updateProducts(){
+  const term = searchInput.value.toLocaleLowerCase('es').trim();
+  let count = 0;
+  productCards.forEach(card => {
+    const matchesCategory = activeCategory === 'Todos' || card.dataset.category === activeCategory;
+    const matchesText = card.textContent.toLocaleLowerCase('es').includes(term);
+    const visible = matchesCategory && matchesText;
+    card.hidden = !visible;
+    if(visible) count++;
+  });
+  noResults.hidden = count !== 0;
+}
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    activeCategory = button.dataset.filter;
+    updateProducts();
+  });
+});
+searchInput.addEventListener('input', updateProducts);
+</script>
+</body>
+</html>
